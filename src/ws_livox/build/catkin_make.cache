@@ -1,0 +1,2 @@
+livox_ros_driver2
+-DCATKIN_DEVEL_PREFIX=/root/ws_livox/devel -DCMAKE_INSTALL_PREFIX=/root/ws_livox/install -G Unix Makefiles

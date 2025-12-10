@@ -1,0 +1,19 @@
+<launch>
+  <!-- Play rooftopFast.bag from /root/bagfiles -->
+  <node pkg="rosbag"
+        type="play"
+        name="rooftop_bag_player"
+        output="screen"
+        args="-r 2 /root/bagfiles/corridor2.bag" />
+
+  <!-- Run FAST-LIO MID360 mapping launch file -->
+  <include file="$(find fast_livo2)/launch/mapping_avia.launch" />
+
+  <!-- Record /path positions into CSV -->
+  <node pkg="odometry"
+        type="extract_odom_to_csv.py"
+        name="extract_odom_to_csv"
+        output="screen">
+    <param name="csv_filename" value="corridor2_livo.csv" />
+  </node>
+</launch>
